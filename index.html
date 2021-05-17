@@ -23,7 +23,7 @@
         <title></title>
     </head>
     <body>
-        <h2>POPULATION TOTALE ET TAUX DE NAISSANCE DANS L'EXTREME-NORD EN 2020</h2>
+        <h2>POPULATION TOTALE ET TAUX DE NAISSANCE DANS L'EXTREME-NORD EN 2018</h2>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -139,7 +139,7 @@
         function pop_Populationtotale_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['poptot'] !== null ? autolinker.link(feature.properties['poptot'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>population totale</strong><br />' + (feature.properties['poptot'] !== null ? autolinker.link(feature.properties['poptot'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -269,7 +269,7 @@
         function pop_tauxdenatalit_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Livbirth'] !== null ? autolinker.link(feature.properties['Livbirth'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>taux de natatalité</strong><br />' + (feature.properties['Livbirth'] !== null ? autolinker.link(feature.properties['Livbirth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
