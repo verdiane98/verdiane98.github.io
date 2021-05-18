@@ -23,7 +23,7 @@
         <title></title>
     </head>
     <body>
-        <h2>POPULATION TOTALE ET TAUX DE NAISSANCE DANS L'EXTREME-NORD EN 2020</h2>
+        <h2>POPULATION TOTALE ET NOMBRE DE NAISSANCE DANS L'EXTREME-NORD EN 2020</h2>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -38,7 +38,7 @@
         <script src="js/leaflet-measure.js"></script>
         <script src="data/extreme_nord_1.js"></script>
         <script src="data/Populationtotale_2.js"></script>
-        <script src="data/tauxdenatalit_3.js"></script>
+        <script src="data/Nombredenaissance_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -266,19 +266,19 @@
         });
         bounds_group.addLayer(layer_Populationtotale_2);
         map.addLayer(layer_Populationtotale_2);
-        function pop_tauxdenatalit_3(feature, layer) {
+        function pop_Nombredenaissance_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>taux de natatalité</strong><br />' + (feature.properties['Livbirth'] !== null ? autolinker.link(feature.properties['Livbirth'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Nombre de  naissance</strong><br />' + (feature.properties['Livbirth'] !== null ? autolinker.link(feature.properties['Livbirth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_tauxdenatalit_3_0(feature) {
+        function style_Nombredenaissance_3_0(feature) {
             if (feature.properties['Livbirth'] >= 2589.000000 && feature.properties['Livbirth'] <= 3521.000000 ) {
                 return {
-                pane: 'pane_tauxdenatalit_3',
+                pane: 'pane_Nombredenaissance_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -294,7 +294,7 @@
             }
             if (feature.properties['Livbirth'] >= 3521.000000 && feature.properties['Livbirth'] <= 5060.000000 ) {
                 return {
-                pane: 'pane_tauxdenatalit_3',
+                pane: 'pane_Nombredenaissance_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -310,7 +310,7 @@
             }
             if (feature.properties['Livbirth'] >= 5060.000000 && feature.properties['Livbirth'] <= 6611.000000 ) {
                 return {
-                pane: 'pane_tauxdenatalit_3',
+                pane: 'pane_Nombredenaissance_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -326,7 +326,7 @@
             }
             if (feature.properties['Livbirth'] >= 6611.000000 && feature.properties['Livbirth'] <= 7614.000000 ) {
                 return {
-                pane: 'pane_tauxdenatalit_3',
+                pane: 'pane_Nombredenaissance_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -342,7 +342,7 @@
             }
             if (feature.properties['Livbirth'] >= 7614.000000 && feature.properties['Livbirth'] <= 9612.000000 ) {
                 return {
-                pane: 'pane_tauxdenatalit_3',
+                pane: 'pane_Nombredenaissance_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -358,7 +358,7 @@
             }
             if (feature.properties['Livbirth'] >= 9612.000000 && feature.properties['Livbirth'] <= 14113.000000 ) {
                 return {
-                pane: 'pane_tauxdenatalit_3',
+                pane: 'pane_Nombredenaissance_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -374,7 +374,7 @@
             }
             if (feature.properties['Livbirth'] >= 14113.000000 && feature.properties['Livbirth'] <= 18581.000000 ) {
                 return {
-                pane: 'pane_tauxdenatalit_3',
+                pane: 'pane_Nombredenaissance_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -389,28 +389,28 @@
             }
             }
         }
-        map.createPane('pane_tauxdenatalit_3');
-        map.getPane('pane_tauxdenatalit_3').style.zIndex = 403;
-        map.getPane('pane_tauxdenatalit_3').style['mix-blend-mode'] = 'normal';
-        var layer_tauxdenatalit_3 = new L.geoJson(json_tauxdenatalit_3, {
+        map.createPane('pane_Nombredenaissance_3');
+        map.getPane('pane_Nombredenaissance_3').style.zIndex = 403;
+        map.getPane('pane_Nombredenaissance_3').style['mix-blend-mode'] = 'normal';
+        var layer_Nombredenaissance_3 = new L.geoJson(json_Nombredenaissance_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_tauxdenatalit_3',
-            layerName: 'layer_tauxdenatalit_3',
-            pane: 'pane_tauxdenatalit_3',
-            onEachFeature: pop_tauxdenatalit_3,
+            dataVar: 'json_Nombredenaissance_3',
+            layerName: 'layer_Nombredenaissance_3',
+            pane: 'pane_Nombredenaissance_3',
+            onEachFeature: pop_Nombredenaissance_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_tauxdenatalit_3_0(feature));
+                return L.circleMarker(latlng, style_Nombredenaissance_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_tauxdenatalit_3);
-        map.addLayer(layer_tauxdenatalit_3);
+        bounds_group.addLayer(layer_Nombredenaissance_3);
+        map.addLayer(layer_Nombredenaissance_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'taux de natalité<br /><table><tr><td style="text-align: center;"><img src="legend/tauxdenatalit_3_258935210.png" /></td><td>2589 - 3521</td></tr><tr><td style="text-align: center;"><img src="legend/tauxdenatalit_3_352150601.png" /></td><td>3521 - 5060</td></tr><tr><td style="text-align: center;"><img src="legend/tauxdenatalit_3_506066112.png" /></td><td>5060 - 6611</td></tr><tr><td style="text-align: center;"><img src="legend/tauxdenatalit_3_661176143.png" /></td><td>6611 - 7614</td></tr><tr><td style="text-align: center;"><img src="legend/tauxdenatalit_3_761496124.png" /></td><td>7614 - 9612</td></tr><tr><td style="text-align: center;"><img src="legend/tauxdenatalit_3_9612141135.png" /></td><td>9612 - 14113</td></tr><tr><td style="text-align: center;"><img src="legend/tauxdenatalit_3_14113185816.png" /></td><td>14113 - 18581</td></tr></table>': layer_tauxdenatalit_3,'Population totale<br /><table><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_55088749110.png" /></td><td>55088 - 74911</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_749111076651.png" /></td><td>74911 - 107665</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_1076651406572.png" /></td><td>107665 - 140657</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_1406571619943.png" /></td><td>140657 - 161994</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_1619942045064.png" /></td><td>161994 - 204506</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_2045063002755.png" /></td><td>204506 - 300275</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_3002753953336.png" /></td><td>300275 - 395333</td></tr></table>': layer_Populationtotale_2,'<img src="legend/extreme_nord_1.png" /> extreme_nord': layer_extreme_nord_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Nombre de naissance<br /><table><tr><td style="text-align: center;"><img src="legend/Nombredenaissance_3_258935210.png" /></td><td>2589 - 3521</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredenaissance_3_352150601.png" /></td><td>3521 - 5060</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredenaissance_3_506066112.png" /></td><td>5060 - 6611</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredenaissance_3_661176143.png" /></td><td>6611 - 7614</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredenaissance_3_761496124.png" /></td><td>7614 - 9612</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredenaissance_3_9612141135.png" /></td><td>9612 - 14113</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredenaissance_3_14113185816.png" /></td><td>14113 - 18581</td></tr></table>': layer_Nombredenaissance_3,'Population totale<br /><table><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_55088749110.png" /></td><td>55088 - 74911</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_749111076651.png" /></td><td>74911 - 107665</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_1076651406572.png" /></td><td>107665 - 140657</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_1406571619943.png" /></td><td>140657 - 161994</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_1619942045064.png" /></td><td>161994 - 204506</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_2045063002755.png" /></td><td>204506 - 300275</td></tr><tr><td style="text-align: center;"><img src="legend/Populationtotale_2_3002753953336.png" /></td><td>300275 - 395333</td></tr></table>': layer_Populationtotale_2,'<img src="legend/extreme_nord_1.png" /> extreme_nord': layer_extreme_nord_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
         layer_extreme_nord_1.eachLayer(function(layer) {
